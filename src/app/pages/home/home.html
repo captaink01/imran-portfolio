@@ -1,0 +1,48 @@
+<section class="hero">
+  <div class="noise"></div>
+  <div class="grid-lines"></div>
+  <div class="hero-content">
+    <div class="badge">
+      <span class="dot-pulse"></span>
+      Available for opportunities
+    </div>
+    <h1>
+      <span class="line1">Imran</span>
+      <span class="line2">Muhammad<br>Hamza</span>
+    </h1>
+    <p class="role">Software Engineer <span class="sep">/</span> Full-Stack Developer</p>
+    <p class="tagline">Building scalable web & mobile applications from Abuja, Nigeria.</p>
+    <div class="cta-group">
+      <a routerLink="/projects" class="btn-primary">View Projects</a>
+      <a routerLink="/contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="skills-ticker">
+    <div class="ticker-track">
+      <span *ngFor="let s of skills">{{ s }}<em>·</em></span>
+      <span *ngFor="let s of skills">{{ s }}<em>·</em></span>
+    </div>
+  </div>
+</section>
+
+<section class="quick-stats">
+  <div class="stat">
+    <span class="num">B.Sc</span>
+    <span class="label">Software Engineering<br>Bayero University</span>
+  </div>
+  <div class="divider"></div>
+  <div class="stat">
+    <span class="num">1+</span>
+    <span class="label">Year Industry<br>Experience</span>
+  </div>
+  <div class="divider"></div>
+  <div class="stat">
+    <span class="num">5+</span>
+    <span class="label">Technologies<br>Mastered</span>
+  </div>
+  <div class="divider"></div>
+  <div class="stat">
+    <span class="num">∞</span>
+    <span class="label">Problems<br>To Solve</span>
+  </div>
+</section>

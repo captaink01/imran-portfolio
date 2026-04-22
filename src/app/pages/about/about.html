@@ -1,0 +1,71 @@
+<div class="about-page">
+  <div class="page-header">
+    <span class="label">01 / About</span>
+    <h2>Who I Am</h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="bio-col">
+      <div class="avatar-block">
+        <div class="avatar-initials">IMH</div>
+        <div class="avatar-ring"></div>
+      </div>
+      <h3>Imran Muhammad Hamza</h3>
+      <p class="role-tag">Software Engineer</p>
+      <p class="bio">
+        A Software Engineering graduate with a deep passion for building full-stack web and mobile applications.
+        Based in Abuja, Nigeria, I thrive on solving real-world problems through clean, scalable code.
+      </p>
+      <p class="bio">
+        My journey spans from hands-on industry experience as an intern at Comsoft Limited to building personal
+        projects using modern JavaScript ecosystems. I'm always learning and pushing my technical boundaries.
+      </p>
+      <div class="info-list">
+        <div class="info-item">
+          <span class="info-key">Location</span>
+          <span class="info-val">Abuja, FCT, Nigeria</span>
+        </div>
+        <div class="info-item">
+          <span class="info-key">Email</span>
+          <span class="info-val">mzimran7&#64;gmail.com</span>
+        </div>
+        <div class="info-item">
+          <span class="info-key">GitHub</span>
+          <span class="info-val">github.com/captaink01</span>
+        </div>
+        <div class="info-item">
+          <span class="info-key">Status</span>
+          <span class="info-val accent">Open to opportunities</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="skills-section">
+        <h4>Technical Skills</h4>
+        <div class="skill-groups">
+          <div class="skill-group" *ngFor="let key of skillKeys()">
+            <span class="group-name">{{ key }}</span>
+            <div class="tags">
+              <span class="tag" *ngFor="let skill of skillValues(key)">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-section">
+        <h4>Timeline</h4>
+        <div class="timeline">
+          <div class="tl-item" *ngFor="let item of timeline" [class.work]="item.type === 'work'" [class.edu]="item.type === 'edu'">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <span class="tl-year">{{ item.year }}</span>
+              <span class="tl-title">{{ item.title }}</span>
+              <span class="tl-org">{{ item.org }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

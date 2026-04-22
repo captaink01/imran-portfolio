@@ -1,0 +1,13 @@
+<nav class="navbar">
+  <a routerLink="/" class="logo">IH<span class="dot">.</span></a>
+  <ul class="nav-links" [class.open]="menuOpen">
+    <li *ngFor="let link of links">
+      <a [routerLink]="link.path" routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: link.path === '/'}"
+         (click)="close()">{{link.label}}</a>
+    </li>
+  </ul>
+  <button class="hamburger" (click)="toggle()" [class.open]="menuOpen">
+    <span></span><span></span><span></span>
+  </button>
+</nav>

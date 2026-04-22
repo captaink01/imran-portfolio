@@ -1,0 +1,95 @@
+<div class="contact-page">
+  <div class="page-header">
+    <span class="label">03 / Contact</span>
+    <h2>Let's Connect</h2>
+    <p class="subtitle">Open to internships, entry-level roles, and freelance work.</p>
+  </div>
+
+  <div class="contact-grid">
+    <!-- Left: contact info -->
+    <div class="info-col">
+      <p class="intro">
+        I'm actively looking for opportunities to contribute to impactful software projects.
+        Whether you have a role, a project idea, or just want to say hi — my inbox is open.
+      </p>
+
+      <div class="contact-cards">
+        <a *ngFor="let c of contacts" [href]="c.href" target="_blank" class="contact-card">
+          <div class="contact-icon">
+            <!-- email -->
+            <svg *ngIf="c.icon === 'email'" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <!-- phone -->
+            <svg *ngIf="c.icon === 'phone'" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <!-- github -->
+            <svg *ngIf="c.icon === 'github'" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+            </svg>
+            <!-- linkedin -->
+            <svg *ngIf="c.icon === 'linkedin'" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <div class="contact-info">
+            <span class="contact-label">{{ c.label }}</span>
+            <span class="contact-value">{{ c.value }}</span>
+          </div>
+          <svg class="arrow" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7v10"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="location-block">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        <span>Block 8, Flat 1, Mbabane Street, Wuse Zone 6, FCT Abuja, Nigeria</span>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="form-col">
+      <div class="success-state" *ngIf="submitted">
+        <div class="success-icon">✓</div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. I'll get back to you as soon as possible.</p>
+        <button class="btn-primary" (click)="reset()">Send Another</button>
+      </div>
+
+      <form *ngIf="!submitted" (ngSubmit)="onSubmit()" #f="ngForm" class="contact-form">
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name"
+              [(ngModel)]="formData.name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="your@email.com"
+              [(ngModel)]="formData.email" name="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="subject">Subject</label>
+          <input id="subject" type="text" placeholder="What's this about?"
+            [(ngModel)]="formData.subject" name="subject" required>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" rows="6" placeholder="Tell me about your project or opportunity..."
+            [(ngModel)]="formData.message" name="message" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" [disabled]="sending || f.invalid">
+          <span *ngIf="!sending">Send Message →</span>
+          <span *ngIf="sending" class="sending">Sending<span class="dots">...</span></span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
